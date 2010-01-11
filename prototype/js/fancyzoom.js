@@ -41,7 +41,7 @@ var FancyZoomBox = {
 		if (ie) {
 			var version = parseInt(ie[1]);
 			Prototype.Browser['IE' + version.toString()] = true;
-			Prototype.Browser.ltIE7 = (version < 7) ? true : false;
+			Prototype.Browser.ltIE7 = (version < 8) ? true : false;
 		}
 
 		var html = '<div id="zoom" style="display:none;"> \
@@ -250,12 +250,12 @@ var FancyZoomBox = {
 
 	// prevents the thick black border that happens when appearing or fading png in IE
 	fixBackgroundsForIE: function() {
-		if (Prototype.Browser.IE7) { FancyZoomBox.switchBackgroundImagesTo('gif'); }
+		if (Prototype.Browser.IE7 || Prototype.Browser.IE8) { FancyZoomBox.switchBackgroundImagesTo('gif'); }
 	},
 
 	// swaps back to png's for prettier shadows
 	unfixBackgroundsForIE: function() {
-		if (Prototype.Browser.IE7) { FancyZoomBox.switchBackgroundImagesTo('png'); }
+		if (Prototype.Browser.IE7 || Prototype.Browser.IE8) { FancyZoomBox.switchBackgroundImagesTo('png'); }
 	}
 };
 
